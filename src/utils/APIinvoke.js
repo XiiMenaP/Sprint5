@@ -7,19 +7,18 @@ class APIinvoke {
         const queryString = queryParams.reduce((last, q, i) => last + `${i===0? '?': "&"}${q}`, '')
 
         const data = {
-            method: 'GET'
+            method: 'GET',
         }
-        const URL = `${config.api.baseURL}${resource}${queryString}`
-        let response = (await(await fetch(URL, data)).json())
+        const url = `${config.api.baseURL}${resource}${queryString}`
+        let response = (await(await fetch(url, data)).json())
         return response
-
     }
 
     async invokePUT(resource, body){
         const data = {
             method: 'PUT',
             body: JSON.stringify(body),
-            Headers: {'Content-Type': 'application/json'}
+            headers: {'Content-Type': 'application/json'}
         }
 
         const url = `${config.api.baseURL}${resource}`
@@ -31,7 +30,7 @@ class APIinvoke {
         const data = {
             method: 'POST',
             body: JSON.stringify(body),
-            Headers: {'content-Type':'application/json'}
+            headers: {'content-Type':'application/json'}
         }
         const url = `${config.api.baseURL}${resource}`
         let response = (await(await fetch(url, data)).json())
@@ -41,7 +40,7 @@ class APIinvoke {
     async invokeDELETE(resource){
         const data = {
             method: 'DELETE',
-            Headers: {'content-Type':'application/json'}
+            headers: {'content-Type':'application/json'}
         }
         const url = `${config.api.baseURL}${resource}`
         let response = (await(await fetch(url, data)).json())
