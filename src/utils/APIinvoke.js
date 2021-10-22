@@ -9,8 +9,8 @@ class APIinvoke {
         const data = {
             method: 'GET'
         }
-        const url = `${config.api.baseUrl}${resource}${queryString}`
-        let response = (await(await fetch(url, data)).json())
+        const URL = `${config.api.baseURL}${resource}${queryString}`
+        let response = (await(await fetch(URL, data)).json())
         return response
 
     }
@@ -22,7 +22,7 @@ class APIinvoke {
             Headers: {'Content-Type': 'application/json'}
         }
 
-        const url = `${config.api.baseUrl}${resource}`
+        const url = `${config.api.baseURL}${resource}`
         let response = (await(await fetch(url, data)).json())
         return response
     }
@@ -33,7 +33,7 @@ class APIinvoke {
             body: JSON.stringify(body),
             Headers: {'content-Type':'application/json'}
         }
-        const url = `${config.api.baseUrl}${resource}`
+        const url = `${config.api.baseURL}${resource}`
         let response = (await(await fetch(url, data)).json())
         return response
     }
@@ -43,7 +43,7 @@ class APIinvoke {
             method: 'DELETE',
             Headers: {'content-Type':'application/json'}
         }
-        const url = `${config.api.baseUrl}${resource}`
+        const url = `${config.api.baseURL}${resource}`
         let response = (await(await fetch(url, data)).json())
         return response
     }
